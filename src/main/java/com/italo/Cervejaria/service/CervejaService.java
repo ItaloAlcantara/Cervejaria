@@ -36,6 +36,8 @@ private static final String CADASTRO_VIEW=("cerveja/cadastrar");
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
 		Iterable<Cerveja> cerveja = cervejaRepository.findAll();
 		mv.addObject("cervejas",cerveja);
+		Iterable<Categoria> categorias=categoriaRepository.findAll();
+		mv.addObject("categorias",categorias);
 		return mv;
 	}
 	

@@ -30,7 +30,8 @@ private static final String CADASTRO_VIEW=("categoria/cadastrar");
 	public ModelAndView listar() {
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
 		Iterable<Categoria> categoria = categoriaRepository.findAll();
-		mv.addObject("categorias",categoria);		
+		mv.addObject("categorias",categoria);
+		mv.addObject("tipoCategoria",Tipo.values());
 		return mv;
 	}
 	

@@ -15,5 +15,16 @@
 		</select>
 		<input type="submit" value="Salvar">
 	</form>
+	<br/>
+	<a href="/listarcategoria">Listar categoria</a>
+	<br/>
+	<table>
+		<tr th:each="categoria : ${categorias}">
+			<td th:text="${categoria.id}"></td>
+			<td th:text="${categoria.descricao}"></td>
+			<td th:text="${categoria.tipo}"></td>
+		</tr>
+	</table>
+	
 </body>
 </html>

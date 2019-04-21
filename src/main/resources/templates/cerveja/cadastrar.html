@@ -10,10 +10,20 @@
 		<label>Descrição</label> 
 			<input type="text" id="descricao" name="descricao"> 		
 		<select name="categoria" id="categoria">
-				
 				<option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.descricao}"></option>
 		</select>
 		<input type="submit" value="Salvar">
 	</form>
+	<a href="/listarcerveja">Listar Cerveja</a>
+	<br/>
+	<table>
+		<tr th:each="cerveja : ${cervejas}">
+			<td th:text="${cerveja.id}"></td>
+			<td th:text="${cerveja.descricao}"></td>
+			<td th:text="${cerveja.categoria.id}"></td>
+			<td th:text="${cerveja.categoria.descricao}"></td>
+		</tr>
+	</table>
+	
 </body>
 </html>

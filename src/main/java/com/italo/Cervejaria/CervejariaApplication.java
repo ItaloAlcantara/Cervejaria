@@ -18,18 +18,7 @@ public class CervejariaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CervejariaApplication.class, args);
-		
-		/*Categoria c1 =  new Categoria();
-		c1.setId((long) 24);
-		c1.setTipo(Tipo.IMPORTADO);
-		c1.setDescricao("Teste True");
-		
-		Cerveja c = new Cerveja();
-		c.setCategoria(c1);
-		c.setId((long)1231);
-		c.setDescricao("try thus");
-		
-		System.out.println(c);*/
+
 	}
 
 }

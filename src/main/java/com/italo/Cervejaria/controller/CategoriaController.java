@@ -7,27 +7,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.italo.Cervejaria.model.Categoria;
-import com.italo.Cervejaria.model.Tipo;
-import com.italo.Cervejaria.repository.CategoriaRepository;
+import com.italo.Cervejaria.service.CategoriaService;
 
 @Controller
 public class CategoriaController {
-	
-	private static final String CADASTRO_VIEW=("categoria/cadastrar");
-	
+		
 	@Autowired
-	private CategoriaRepository categoriaRepository;
+	private CategoriaService categoriaService;
 	
 	@GetMapping("/cadastrocategoria")
 	public ModelAndView inicio() {
-		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-		mv.addObject("tipoCategoria",Tipo.values());
-		return mv;//Primeiro pasta depois pagina HTML
+		return categoriaService.inicio();
 	}
 	
 	@PostMapping("/cadastrarcategoria")
 	public String cadastrar(Categoria categoria) {
-		categoriaRepository.save(categoria);
-		return "redirect:cadastrocategoria";
+		return categoriaService.cadastrar(categoria);
+	}
+	
+	@GetMapping("/listarcategoria")
+	public ModelAndView listar() {
+		return categoriaService.listar();
 	}
 }

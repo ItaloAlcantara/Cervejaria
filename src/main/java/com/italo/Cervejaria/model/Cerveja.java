@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
@@ -20,9 +20,9 @@ public class Cerveja implements Serializable{
 	private Long id;
 	
 	@NotEmpty(message = "Não pode ser vazio")
-	private String nome;
+	private String descricao;
 	
-	@ManyToMany
+	@ManyToOne
 	private Categoria categoria;
 
 	public Long getId() {
@@ -33,12 +33,12 @@ public class Cerveja implements Serializable{
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	public Categoria getCategoria() {

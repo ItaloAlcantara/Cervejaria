@@ -16,8 +16,10 @@ public class Categoria implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	@NotEmpty(message = "Valor não pode ser vazio")
-	private String Descricao;	
+	private String descricao;
+	
 	@Enumerated(EnumType.STRING)
 	private Tipo tipo;
 	
@@ -28,10 +30,10 @@ public class Categoria implements Serializable {
 		this.id = id;
 	}
 	public String getDescricao() {
-		return Descricao;
+		return descricao;
 	}
 	public void setDescricao(String descricao) {
-		Descricao = descricao;
+		this.descricao = descricao;
 	}
 	public Tipo getTipo() {
 		return tipo;

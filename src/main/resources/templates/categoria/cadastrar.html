@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<form action="cadastrarcategoria" method="post">
+		<label>Descrição</label> 
+			<input type="text" id="descricao" name="descricao"> 
+		
+		<select name="tipo" id="tipo">
+				<option th:each="tipoCategoria : ${tipoCategoria}" th:value="${tipoCategoria}" th:text="${tipoCategoria.descricao}"></option>
+		</select>
+		<input type="submit" value="Salvar">
+	</form>
+</body>
+</html>

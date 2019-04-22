@@ -3,27 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 </head>
 <body>
 	
+	
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><span>Cerveja</span></a>
+    </div>
+  </div>
+</nav>
+	
+	
+	
+	
+	
 	<form action="cadastrarcerveja" method="post">
-		<label>Descrição</label> 
-			<input type="text" id="descricao" name="descricao"> 		
+		<div class="form-group">	
+			<label for="descricao" class="col-sm-2 control-label">Descrição</label> 
+			<div class="col-sm-4">
+				<input type="text" id="descricao" name="descricao">
+			</div>
+		</div> 
+		<div class="form-group">			
 		<select name="categoria" id="categoria">
 				<option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.descricao}"></option>
 		</select>
 		<input type="submit" value="Salvar">
+		</div>
 	</form>
-	<a href="/listarcerveja">Listar Cerveja</a>
-	<br/>
-	<table>
-		<tr th:each="cerveja : ${cervejas}">
-			<td th:text="${cerveja.id}"></td>
-			<td th:text="${cerveja.descricao}"></td>
-			<td th:text="${cerveja.categoria.id}"></td>
-			<td th:text="${cerveja.categoria.descricao}"></td>
-		</tr>
-	</table>
 	
+	
+	<br/>	
+	<a href="/listarcerveja"><span>Listar Cerveja</span></a>
+	<br/>
+	<br/>
+	
+	
+	<div class="panel panel-default">
+  	<div class="panel-heading"><span><h5>Lista de Cervejas </h5></span></div>
+  	<div class="panel-body">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Descricao</th>
+					<th>Categoria</th>					
+				</tr>
+			</thead>
+			<tbody>
+			<tr th:each="cerveja : ${cervejas}">
+				<td th:text="${cerveja.id}"></td>
+				<td th:text="${cerveja.descricao}"></td>
+				<td th:text="${cerveja.categoria.descricao}"></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+	
+<script type="/js/bootstrap.min.js"></script>	
 </body>
 </html>

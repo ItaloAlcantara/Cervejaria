@@ -1,5 +1,7 @@
 package com.italo.Cervejaria.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,18 +29,26 @@ private static final String CADASTRO_VIEW=("cerveja/cadastrar");
 	
 	public ModelAndView inicio() {
 		ModelAndView mv =new ModelAndView(CADASTRO_VIEW);
-		Iterable<Categoria> categorias=categoriaRepository.findAll();
-		mv.addObject("categorias",categorias);
+		
+		mv.addObject("categorias",listaCategorias());
 		return mv;
 	}
 	
 	public ModelAndView listar() {
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-		Iterable<Cerveja> cerveja = cervejaRepository.findAll();
-		mv.addObject("cervejas",cerveja);
-		Iterable<Categoria> categorias=categoriaRepository.findAll();
-		mv.addObject("categorias",categorias);
+		
+		mv.addObject("cervejas",listaCervejas());
+		mv.addObject("categorias",listaCategorias());
 		return mv;
+	}
+	
+	public Iterable<Categoria> listaCategorias() {
+		Iterable<Categoria> categorias=categoriaRepository.findAll();
+		return categorias;
+	}
+	public Iterable<Cerveja> listaCervejas() {
+		Iterable<Cerveja> cervejas=cervejaRepository.findAll();
+		return cervejas;
 	}
 	
 }
